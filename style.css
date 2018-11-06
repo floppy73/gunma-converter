@@ -1,0 +1,44 @@
+#main {
+    margin: 0 auto;
+    width: 50%;
+}
+
+#inputarea {
+    text-align: center;
+}
+
+#input_text {
+    width: 90%;
+}
+
+#input_text:focus {
+    outline: 2px solid #007725
+}
+
+#convertbtn {
+    margin: 0 auto;
+    height: 70px;
+    position: relative;
+    cursor: pointer;
+}
+
+#btntext {
+    position: absolute;
+    color: #007725;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+}
+
+#convertbtn img {
+    height: 70px;
+    opacity: 0.3;
+}
+
+#bottom {
+    padding: 5%;
+}
