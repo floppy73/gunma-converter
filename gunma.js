@@ -1,36 +1,46 @@
 'use strict';
 const convertbtn = document.getElementById('convertbtn');
 const textarea = document.getElementById('input_text');
+const bottomarea = document.getElementById('bottom');
 const resultarea = document.getElementById('resultarea');
 const tweetarea = document.getElementById('tweetarea');
 
 
 convertbtn.onclick = () => {
-    while (resultarea.firstChild) {
-        resultarea.removeChild(resultarea.firstChild);
-    }
+    // 変換後の文章表示エリアに子要素がある限り削除
+    removeElement(resultarea);
 
+    // 変換後の文章を表示
     const origintext = textarea.value;
     const convertedtext = convertGunma(origintext);
 
     const add = document.createElement('p');
     add.innerHTML = convertedtext;
     resultarea.appendChild(add);
+
+    // 背景色をつける
+    bottomarea.classList.add('iselement');
     
-    
-    while (tweetarea.firstChild) {
-        tweetarea.removeChild(tweetarea.firstChild);
-    }
+    // ツイートボタンがある限り削除
+    removeElement(tweetarea);
+
+    // ツイートボタンの挿入
     const anchor = document.createElement('a');
     const href = "https://twitter.com/intent/tweet?button_hashtag=" + encodeURIComponent('ぐんま変換') + "&ref_src=twsrc%5Etfw";
     anchor.setAttribute('href', href);
     anchor.className = "twitter-hashtag-button";
-    anchor.setAttribute('data-text', convertedtext);
-    anchor.innerText = 'Tweet #ぐんま変換';
+    anchor.setAttribute('data-text', convertedtext ? convertedtext : 'I love ぐんま♡');
+    anchor.innerText = 'Tweet #%E3%81%90%E3%82%93%E3%81%BE%E8%A8%BA%E6%96%AD';
     tweetarea.appendChild(anchor);
 
     twttr.widgets.load();
 };
+
+function removeElement (obj) {
+    while (obj.firstChild) {
+        obj.removeChild(obj.firstChild);
+    }
+}
 
 function convertGunma (str) {
     const reversed = str.split("").reverse().join("");
