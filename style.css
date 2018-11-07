@@ -1,11 +1,13 @@
 body {
     font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
     font-weight: 500;
+    color: #333333;
 }
 
 #main {
     margin: 0 auto;
     width: 50%;
+    margin-top: 30px;
 }
 
 #inputarea {
@@ -14,10 +16,11 @@ body {
 
 #input_text {
     width: 90%;
+    font-size: 14px;
 }
 
 #input_text:focus {
-    outline: 2px solid #007725
+    outline: 2px solid #007725;
 }
 
 #convertbtn {
@@ -46,4 +49,10 @@ body {
 
 #bottom {
     padding: 5%;
+    margin-top: 20px;
+}
+
+.iselement {
+    background-color: #ebebeb;
+    border-radius: 3px;
 }
