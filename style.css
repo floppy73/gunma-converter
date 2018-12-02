@@ -32,6 +32,7 @@ body {
 
 #btntext {
     position: absolute;
+    font-weight: bold;
     color: #007725;
     top: 50%;
     left: 50%;
@@ -55,4 +56,17 @@ body {
 .iselement {
     background-color: #ebebeb;
     border-radius: 3px;
+}
+
+#copybtn {
+    background-color: #007725;
+    color: #ebebeb;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    box-shadow: none;
+}
+
+#copybtn:hover {
+    background-color: #045e21;
 }

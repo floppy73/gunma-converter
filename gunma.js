@@ -4,6 +4,7 @@ const textarea = document.getElementById('input_text');
 const bottomarea = document.getElementById('bottom');
 const resultarea = document.getElementById('resultarea');
 const tweetarea = document.getElementById('tweetarea');
+const copyarea = document.getElementById('copyarea');
 
 
 convertbtn.onclick = () => {
@@ -34,6 +35,15 @@ convertbtn.onclick = () => {
     tweetarea.appendChild(anchor);
 
     twttr.widgets.load();
+
+    // コピーボタンの挿入
+    const button = document.createElement('button');
+    button.id = 'copybtn';
+    button.innerText = 'クリップボードにコピー';
+    copyarea.appendChild(button);
+
+    copybtn.onclick = copyText(convertedtext);
+    
 };
 
 function removeElement (obj) {
@@ -58,4 +68,18 @@ function convertGunma (str) {
         }
     }
     return resultArray.join("");
+}
+
+function copyText (text) {
+    // テキストエリアの挿入
+    var textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+
+    // コピー
+    textarea.select();
+    document.execCommand('copy');
+
+    // テキストエリアの削除
+    document.body.removeChild(textarea);
 }
