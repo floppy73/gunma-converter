@@ -37,6 +37,8 @@ convertbtn.onclick = () => {
     twttr.widgets.load();
 
     // コピーボタンの挿入
+    removeElement(copyarea);
+
     const button = document.createElement('button');
     button.id = 'copybtn';
     button.innerText = 'クリップボードにコピー';
@@ -46,13 +48,13 @@ convertbtn.onclick = () => {
     
 };
 
-function removeElement (obj) {
+const removeElement = (obj) => {
     while (obj.firstChild) {
         obj.removeChild(obj.firstChild);
     }
 }
 
-function convertGunma (str) {
+const convertGunma = (str) => {
     const reversed = str.split("").reverse().join("");
     const replaced = reversed.replace(/([。？！])/g, "$1dfb6f722");
     const replacedorigin = replaced.split("").reverse().join("");
@@ -70,7 +72,7 @@ function convertGunma (str) {
     return resultArray.join("");
 }
 
-function copyText (text) {
+const copyText = (text) => {
     // テキストエリアの挿入
     var textarea = document.createElement('textarea');
     textarea.value = text;
